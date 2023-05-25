@@ -25,3 +25,19 @@ class AddTask(generic.CreateView):
     template_name = 'add_task.html'
     form_class = TaskForm
     success_url = reverse_lazy('home')
+
+
+class UpdateTask(generic.UpdateView):
+
+    model = Task
+    template_name = 'add_task.html'
+    form_class = TaskForm
+    success_url = reverse_lazy('home')
+
+
+class DeleteTask(generic.DeleteView):
+
+    model = Task
+    template_name = 'delete_task.html'
+    context_object_name = 'task_to_delete'
+    success_url = reverse_lazy('home')

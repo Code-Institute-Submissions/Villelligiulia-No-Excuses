@@ -10,9 +10,11 @@
     <tr>
         <td><a href='{% url "task" task.id %}'>It's Time To: </a></td>
         <td>{{task.title}}</td>
+        <td><a href="{% url 'update_task' task.id %}">Change Task</a></td>
+        <td><a href="{% url 'delete_task' task.id %}">Delete Task</a></td>
     </tr>
     {% empty %}
     <h3>No items in list </h3>
     {% endfor %}
 </table>
-<a href="{% url 'add_task' %}">Add an Item</a>
+<a href="{% url 'add_task' %}">Add a Task</a>
