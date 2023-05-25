@@ -77,7 +77,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'no_excuses.wsgi.application'
+WSGI_APPLICATION = 'no-excuses.wsgi.application'
 
 
 # Database
