@@ -10,11 +10,25 @@
     <tr>
         <td><a href='{% url "task" task.id %}'>It's Time To: </a></td>
         <td>{{task.title}}</td>
-        <td><a href="{% url 'update_task' task.id %}">Change Task</a></td>
+        <td><a href="{% url 'update_task' task.id %}">Update Task</a></td>
         <td><a href="{% url 'delete_task' task.id %}">Delete Task</a></td>
+        <td><a href="{% url 'toggle_task' task.id %}">Toggle Task</a></td>
     </tr>
     {% empty %}
     <h3>No items in list </h3>
     {% endfor %}
 </table>
+<table>
+    {% for task in tasks %}
+    <tr>
+        {% if task.done %}
+        <th>Task completed: </th>
+        <td><strike>{{ task.title }}</strike></td>
+        {% else %}
+        <td>{{ task.name }}</td>
+        {% endif %}
+    </tr>
+    {% endfor %}
+</table>
+
 <a href="{% url 'add_task' %}">Add a Task</a>
