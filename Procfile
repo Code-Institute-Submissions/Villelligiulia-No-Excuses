@@ -1,1 +1,1 @@
-web: gunicorn no_excuses.wsgi
+web: gunicorn no-excuses.wsgi
