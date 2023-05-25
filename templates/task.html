@@ -1,4 +1,10 @@
 <h1>No Excuses</h1>
+{% if user.is.authenticated %}
+<a href="{% url 'account_logout' %}">LogOut</a>
+{% else %}
+<a href="{% url 'account_signup' %}">Register</a>
+<a href="{% url 'account_login' %}">Login</a>
+{% endif %}
 
 <table>
     <tr>
