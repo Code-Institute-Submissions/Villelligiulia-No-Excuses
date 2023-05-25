@@ -31,8 +31,8 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['8000-villelligiulia-no-excuse-6fzta30y6y.us2.codeanyapp.com', 
-'no-excuses.herokuapp.com','localhost',]
+ALLOWED_HOSTS = ['8000-villelligiulia-no-excuse-6fzta30y6y.us2.codeanyapp.com',
+                 'no-excuses.herokuapp.com', 'localhost',]
 
 
 # Application definition
@@ -64,7 +64,7 @@ ROOT_URLCONF = 'no_excuses.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [TEMPLATES_DIR],
+        'DIRS': [TEMPLATES_DIR,],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
