@@ -20,6 +20,16 @@ class TaskAbout(LoginRequiredMixin, generic.DetailView):
     login_url = 'login'
 
 
+class SearchTask(generic.ListView):
+    model = Task
+    template_name = 'task.html'
+    context_object_name = 'tasks'
+
+    def get_queryset(self):
+        query = self.request.GET.get('task')
+        return Task.objects.filter(title__icontains=query).order_by('title')
+
+
 class AddTask(LoginRequiredMixin, generic.CreateView):
     model = Task
     template_name = 'add_task.html'
