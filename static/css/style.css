@@ -1,0 +1,75 @@
+body {
+    background-color: rgb(233, 228, 229);
+    padding-top: 50px;
+}
+
+h2 {
+    text-align: center;
+    font-family: 'Sacramento', cursive;
+    font-size: 50px;
+
+    line-height: 40px;
+}
+
+h1 {
+    text-align: center;
+    font-family: 'Raleway', sans-serif;
+    font-size: 6rem;
+    text-decoration: line-through;
+    text-decoration-color: rgb(233, 228, 229);
+
+}
+
+
+p {
+    color: black;
+    font-family: 'Raleway', sans-serif;
+    font-size: 15px;
+    font-weight: 900;
+    padding-right: 15px;
+}
+
+a {
+    text-decoration: none;
+    color: rgb(233, 228, 229);
+    font-family: 'Raleway', sans-serif;
+    font-weight: 900;
+    padding: 20px;
+}
+
+button,
+input {
+    border-radius: 30px;
+    background-color: rgb(233, 228, 229);
+    font-family: 'Raleway', sans-serif;
+    box-shadow: 1px 2px black;
+    font-weight: 550;
+
+}
+
+input {
+    padding-left: 3px;
+}
+
+
+
+
+.container {
+
+    margin: auto;
+    border-radius: 30px;
+    border: solid 2px;
+    padding: 30px;
+    max-width: 600px;
+    background-color: rgba(181, 156, 122, 0.637);
+    box-shadow: 5px 10px #888888;
+}
+
+.task-items-container {
+    display: flex;
+    justify-content: flex-start;
+}
+
+textarea.summernote {
+    width: 50px;
+    height: 300px;

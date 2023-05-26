@@ -4,7 +4,8 @@ from django_summernote.widgets import SummernoteWidget
 
 
 class TaskForm(forms.ModelForm):
-    description = forms.CharField(widget=SummernoteWidget())
+    description = forms.CharField(
+        widget=SummernoteWidget(attrs={'class': 'summernote'}))
 
     class Meta:
         model = Task

@@ -1,9 +1,15 @@
-sfsedfsd
+{% extends 'base.html' %}
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+
+{% block content %}
 
 <form method="POST" action="">
     {% csrf_token %}
     {{form.as_p}}
-    <input type="submit" value="submit">
+    <input class="button" type="submit" value="submit">
 
     <a href="{% url 'home'%}">Back to Your List</a>
 </form>
+
+{% endblock content %}

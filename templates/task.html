@@ -1,6 +1,15 @@
-<h1>No Excuses</h1>
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<p>Hello, {{request.user}}</p>
 
 <a href="{% url 'account_logout'%}">Logout</a>
+<hr>
+<h1 style="font-size: 2.5rem;">No Excuses</h1>
+
+
 
 
 <form action="{% url 'search_task' %}" method="get">
@@ -8,36 +17,98 @@
     <input type="text" name="task" placeholder="Search a task">
     <button type="submit"> Search</button>
 </form>
+<div class="task-items-container">
+    <table>
+        <tr>
+
+            <th>
+                <p>To Do:</p>
+            </th>
+
+
+            {% for task in tasks %}
+        <tr>
+
+            <td>
+                <ul>
+                    <li>
+                        <p>{{task.title}}</p>
+                    </li>
+                </ul>
+
+            </td>
+            <br>
+
+            <td><a href="{% url 'update_task' task.id %}">Update </a></td>
+
+            <td><a href="{% url 'delete_task' task.id %}">Delete </a></td>
+
+            <td><a href="{% url 'toggle_task' task.id %}">Toggle </a></td>
+        </tr>
+
+
+        {% endfor %}
+    </table>
+</div>
 
 <table>
     <tr>
-        <th></th>
-        <th>Item</th>
+        <th>
+            <p>Task Completed: </p>
+        </th>
+    </tr>
+    {% for task in tasks %}
 
-    </tr>
-    {% for task in tasks %}
+
+    {% if task.done %}
+
     <tr>
-        <td><a href='{% url "task" task.id %}'>It's Time To: </a></td>
-        <td>{{task.title}}</td>
-        <td><a href="{% url 'update_task' task.id %}">Update Task</a></td>
-        <td><a href="{% url 'delete_task' task.id %}">Delete Task</a></td>
-        <td><a href="{% url 'toggle_task' task.id %}">Toggle Task</a></td>
-    </tr>
-    {% empty %}
-    <h3>No items in list </h3>
-    {% endfor %}
-</table>
-<table>
-    {% for task in tasks %}
-    <tr>
-        {% if task.done %}
-        <th>Task completed: </th>
-        <td><strike>{{ task.title }}</strike></td>
+        <td>
+            <ul>
+                <li>
+                    <p style="text-decoration: line-through;
+                            text-decoration-color: rgb(233, 228, 229);">
+                        {{ task.title }}</p>
+                </li>
+            </ul>
+        </td>
         {% else %}
         <td>{{ task.name }}</td>
         {% endif %}
     </tr>
     {% endfor %}
 </table>
+{% if tasks|filter:'done'|length > 0 %}
+<table>
+    <tr>
+        <th>
+            <p>Task Completed:</p>
+        </th>
+    </tr>
+    {% for task in tasks %}
+    {% if task.done %}
+    <tr>
+        <td>
+            <ul>
+                <li>
+                    <p style="text-decoration: line-through;
+                                        text-decoration-color: rgb(233, 228, 229);">
+                        {{ task.title }}
+                    </p>
+                </li>
+            </ul>
+        </td>
+    </tr>
+    {% endif %}
+    {% endfor %}
+</table>
+{% endif %}
 
 <a href="{% url 'add_task' %}">Add a Task</a>
+
+{% endblock content %}
+
+
+<a href="{% url 'add_task' %}">Add a Task</a>
+
+{% endblock content %}
