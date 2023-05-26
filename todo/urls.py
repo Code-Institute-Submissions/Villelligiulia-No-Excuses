@@ -1,9 +1,13 @@
-from django.urls import path
+
 from . import views
-from django.contrib.auth.views import LogoutView
+from django.contrib.auth.views import LoginView
+from django.urls import path
+
+
 
 urlpatterns = [
-    path('', views.TaskList.as_view(), name='home'),
+    path('', LoginView.as_view(template_name='login.html'), name='login'),
+    path('tasks/', views.TaskList.as_view(), name='task_list'),
     path('about/<int:pk>/', views.TaskAbout.as_view(), name='task'),
     path('add-task/', views.AddTask.as_view(), name='add_task'),
     path('update-task/<int:pk>/', views.UpdateTask.as_view(), name='update_task'),
