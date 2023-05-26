@@ -5,7 +5,7 @@ from django.urls import path
 
 
 urlpatterns = [
-    path('', LoginView.as_view(template_name='login.html'), name='login'),
+    path('', LoginView.as_view(template_name='custom-login.html'), name='login'),
     path('tasks/', views.TaskList.as_view(), name='home'),
     path('about/<int:pk>/', views.TaskAbout.as_view(), name='task'),
     path('add-task/', views.AddTask.as_view(), name='add_task'),

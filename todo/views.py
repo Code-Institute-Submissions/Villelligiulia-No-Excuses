@@ -61,3 +61,4 @@ class ToggleTask(LoginRequiredMixin, generic.View):
         task.save()
         return redirect('home')
     login_url = 'login'
+

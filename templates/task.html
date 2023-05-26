@@ -3,9 +3,12 @@
 
 {% block content %}
 
+
 <p>Hello, {{request.user}}</p>
 
 <a href="{% url 'account_logout'%}">Logout</a>
+
+
 <hr>
 <h1 style="font-size: 2.5rem;">No Excuses</h1>
 
@@ -78,35 +81,6 @@
     </tr>
     {% endfor %}
 </table>
-{% if tasks|filter:'done'|length > 0 %}
-<table>
-    <tr>
-        <th>
-            <p>Task Completed:</p>
-        </th>
-    </tr>
-    {% for task in tasks %}
-    {% if task.done %}
-    <tr>
-        <td>
-            <ul>
-                <li>
-                    <p style="text-decoration: line-through;
-                                        text-decoration-color: rgb(233, 228, 229);">
-                        {{ task.title }}
-                    </p>
-                </li>
-            </ul>
-        </td>
-    </tr>
-    {% endif %}
-    {% endfor %}
-</table>
-{% endif %}
-
-<a href="{% url 'add_task' %}">Add a Task</a>
-
-{% endblock content %}
 
 
 <a href="{% url 'add_task' %}">Add a Task</a>
