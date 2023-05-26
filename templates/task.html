@@ -2,9 +2,10 @@
 {% load static %}
 
 {% block content %}
+ 
 
 
-<p>Hello, {{request.user}}</p>
+<p style="font-size:20px">Much to do {{request.user}} ?!</p>
 
 <a href="{% url 'account_logout'%}">Logout</a>
 

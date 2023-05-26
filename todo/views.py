@@ -6,6 +6,7 @@ from django.urls import reverse_lazy
 from .forms import TaskForm
 
 
+
 class TaskList(LoginRequiredMixin, generic.ListView):
     model = Task
     template_name = 'task.html'

@@ -24,7 +24,7 @@ h1 {
 p {
     color: black;
     font-family: 'Raleway', sans-serif;
-    font-size: 15px;
+    font-size: 20px;
     font-weight: 900;
     padding-right: 15px;
 }
@@ -34,7 +34,8 @@ a {
     color: rgb(233, 228, 229);
     font-family: 'Raleway', sans-serif;
     font-weight: 900;
-    padding: 20px;
+    padding:0 50px 0 10px;
+    font-size:20px;
 }
 
 button,
@@ -44,7 +45,11 @@ input {
     font-family: 'Raleway', sans-serif;
     box-shadow: 1px 2px black;
     font-weight: 550;
+    padding:7px;
 
+}
+button {
+    font-weight:bold;
 }
 
 input {
@@ -54,7 +59,7 @@ input {
 
 
 
-.container {
+.custom-container {
 
     margin: auto;
     border-radius: 30px;
@@ -70,6 +75,15 @@ input {
     justify-content: flex-start;
 }
 
-textarea.summernote {
-    width: 50px;
-    height: 300px;
+#msg{
+    font-family: 'Raleway', sans-serif;
+    text-decoration-color: rgb(233, 228, 229);
+    color: color: black;
+    font-size: 20px;
+    font-weight: bold;
+    background-color: rgb(160 130 89 / 64%);
+    box-shadow: 5px 10px #888888;
+    border: 2px solid black;
+    border-radius: 20px;
+    padding: 5px;
+}
