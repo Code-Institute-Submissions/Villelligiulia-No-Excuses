@@ -30,7 +30,9 @@ TEMPLATES_DIR = os.path.join(BASE_DIR, 'templates')
 SECRET_KEY = os.environ.get('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
+
+X_FRAME_OPTIONS = 'SAMEORIGIN'
 
 ALLOWED_HOSTS = ['8000-villelligiulia-no-excuse-6fzta30y6y.us2.codeanyapp.com',
                  'no-excuses.herokuapp.com', 'localhost',]
@@ -62,12 +64,12 @@ LOGOUT_REDIRECT_URL = 'login'
 ACCOUNT_EMAIL_VERIFICATION = 'none'
 
 MESSAGE_TAGS = {
-        messages.DEBUG: 'alert-info',
-        messages.INFO: 'alert-info',
-        messages.SUCCESS: 'alert-success',
-        messages.WARNING: 'alert-warning',
-        messages.ERROR: 'alert-danger',
-    }
+    messages.DEBUG: 'alert-info',
+    messages.INFO: 'alert-info',
+    messages.SUCCESS: 'alert-success',
+    messages.WARNING: 'alert-warning',
+    messages.ERROR: 'alert-danger',
+}
 
 
 MIDDLEWARE = [
@@ -171,13 +173,13 @@ DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 SUMMERNOTE_CONFIG = {
-    
+
     'summernote': {
         # As an example, using Summernote Air-mode
         'airMode': False,
         'width': '100%',
         'height': '250px',
-        
+
     },
-    
+
 }
