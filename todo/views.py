@@ -9,32 +9,22 @@ from django.contrib import messages
 
 class TaskList(LoginRequiredMixin, generic.ListView):
     model = Task
-    template_name = 'task.html'
-    context_object_name = 'tasks'
-    login_url = 'login'
-
-
-class TaskAbout(LoginRequiredMixin, generic.DetailView):
-    model = Task
-    template_name = 'about.html'
-    context_object_name = 'about'
-    login_url = 'login'
+    template_name = "task.html"
+    context_object_name = "tasks"
+    login_url = "login"
 
 
 class SearchTask(generic.ListView):
     model = Task
-    template_name = 'task.html'
-    context_object_name = 'tasks'
+    template_name = "task.html"
+    context_object_name = "tasks"
 
     def get_queryset(self):
         query = self.request.GET.get('task')
-        return Task.objects.filter(title__icontains=query).order_by('title')
-
-    def get_queryset(self):
-        query = self.request.GET.get('task')
+        tasks = Task.objects.filter(title__icontains=query).order_by('title')
         if not query:
             messages.warning(self.request, 'Please enter a task to search.')
-            return Task.objects.none()
+            return tasks
         tasks = Task.objects.filter(title__icontains=query).order_by('title')
         if not tasks:
             messages.warning(self.request, 'No tasks found.')
@@ -43,44 +33,44 @@ class SearchTask(generic.ListView):
 
 class AddTask(LoginRequiredMixin, generic.CreateView):
     model = Task
-    template_name = 'add_task.html'
+    template_name = "add_task.html"
     form_class = TaskForm
-    success_url = reverse_lazy('home')
-    login_url = 'login'
+    success_url = reverse_lazy("home")
+    login_url = "login"
 
     def form_valid(self, form):
-        messages.success(self.request, 'You added a new task')
+        messages.success(self.request, "You added a new task")
         return super().form_valid(form)
 
     def get_success_url(self):
-        return reverse_lazy('home')
+        return reverse_lazy("home")
 
 
 class UpdateTask(LoginRequiredMixin, generic.UpdateView):
     model = Task
-    template_name = 'add_task.html'
+    template_name = "add_task.html"
     form_class = TaskForm
-    success_url = reverse_lazy('home')
-    login_url = 'login'
+    success_url = reverse_lazy("home")
+    login_url = "login"
 
     def form_valid(self, form):
-        messages.success(self.request, 'You have updated a task')
+        messages.success(self.request, "You have updated a task")
         return super().form_valid(form)
 
     def get_success_url(self):
-        return reverse_lazy('home')
+        return reverse_lazy("home")
 
 
 class DeleteTask(LoginRequiredMixin, generic.DeleteView):
     model = Task
-    template_name = 'delete_task.html'
-    context_object_name = 'task_to_delete'
+    template_name = "delete_task.html"
+    context_object_name = "task_to_delete"
 
-    success_url = reverse_lazy('home')
-    login_url = 'login'
+    success_url = reverse_lazy("home")
+    login_url = "login"
 
     def delete(self, request, *args, **kwargs):
-        messages.success(request, 'You have deleted a task')
+        messages.success(request, "You have deleted a task")
         return super().delete(request, *args, **kwargs)
 
 
@@ -89,5 +79,6 @@ class ToggleTask(LoginRequiredMixin, generic.View):
         task = get_object_or_404(Task, pk=pk)
         task.done = not task.done
         task.save()
-        return redirect('home')
-    login_url = 'login'
+        return redirect("home")
+
+    login_url = "login"
