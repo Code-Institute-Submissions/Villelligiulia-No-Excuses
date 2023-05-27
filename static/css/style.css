@@ -43,10 +43,12 @@ input {
     box-shadow: 1px 2px black;
     font-weight: 550;
     padding: 7px;
+
 }
 
 button {
     font-weight: bold;
+    color: green;
 }
 
 input {

@@ -2,8 +2,6 @@ from django.db import models
 from django.contrib.auth.models import User
 from cloudinary.models import CloudinaryField
 
-# Create a Task Model and add fields
-
 
 class Task(models.Model):
     user = models.ForeignKey(
