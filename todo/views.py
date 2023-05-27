@@ -13,6 +13,10 @@ class TaskList(LoginRequiredMixin, generic.ListView):
     context_object_name = "tasks"
     login_url = "login"
 
+# Implement a search task function for the user
+# if search button clicked with empty task bar inform user
+# if search button clicked with not exiting task inform user
+
 
 class SearchTask(generic.ListView):
     model = Task
@@ -30,6 +34,9 @@ class SearchTask(generic.ListView):
             messages.warning(self.request, 'No tasks found.')
         return tasks
 
+# Implement Add task funcionality
+# and diplay message to the user the task has been added
+
 
 class AddTask(LoginRequiredMixin, generic.CreateView):
     model = Task
@@ -44,6 +51,9 @@ class AddTask(LoginRequiredMixin, generic.CreateView):
 
     def get_success_url(self):
         return reverse_lazy("home")
+
+# Implement Update task funcionality
+# and display message to the user the task has been updated
 
 
 class UpdateTask(LoginRequiredMixin, generic.UpdateView):
@@ -60,6 +70,9 @@ class UpdateTask(LoginRequiredMixin, generic.UpdateView):
     def get_success_url(self):
         return reverse_lazy("home")
 
+# Implement Delete task view funcionality
+# and display message to the user the task has been deleted
+
 
 class DeleteTask(LoginRequiredMixin, generic.DeleteView):
     model = Task
@@ -72,6 +85,8 @@ class DeleteTask(LoginRequiredMixin, generic.DeleteView):
     def delete(self, request, *args, **kwargs):
         messages.success(request, "You have deleted a task")
         return super().delete(request, *args, **kwargs)
+
+# implement Toggle task funcionality
 
 
 class ToggleTask(LoginRequiredMixin, generic.View):

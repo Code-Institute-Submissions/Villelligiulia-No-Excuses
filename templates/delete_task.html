@@ -1,6 +1,10 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block content %}
+
+<!-- delete task form will ask the user sure aboute deleting
+after delete success_url in view redirect to home
+if user doesn want to delete Back to Your List Link connected to home -->
 <form method="POST">
     {% csrf_token %}
     <p>Do You want to delete this task? "{{task_to_delete}}"</p>
