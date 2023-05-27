@@ -27,11 +27,10 @@
                     </li>
                 </ul>
             </td>
-        </tr>
-        <tr>
             <td><a href="{% url 'update_task' task.id %}">Update</a></td>
             <td><a href="{% url 'delete_task' task.id %}">Delete</a></td>
             <td><a href="{% url 'toggle_task' task.id %}">Toggle</a></td>
+
         </tr>
         {% endfor %}
     </table>
