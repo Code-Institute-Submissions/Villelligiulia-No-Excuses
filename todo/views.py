@@ -1,4 +1,3 @@
-from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views import generic
 from django.shortcuts import redirect, get_object_or_404, render
 from .models import Task
