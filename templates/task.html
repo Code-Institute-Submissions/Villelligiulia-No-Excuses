@@ -15,7 +15,7 @@
     <table>
         <tr>
             <th>
-                <p>To Do:</p>
+                <p style="text-align: justify;">To Do:</p>
             </th>
         </tr>
         {% for task in tasks %}
@@ -27,7 +27,8 @@
                     </li>
                 </ul>
             </td>
-            <br>
+        </tr>
+        <tr>
             <td><a href="{% url 'update_task' task.id %}">Update</a></td>
             <td><a href="{% url 'delete_task' task.id %}">Delete</a></td>
             <td><a href="{% url 'toggle_task' task.id %}">Toggle</a></td>
