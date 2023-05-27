@@ -2,55 +2,43 @@
 {% load static %}
 
 {% block content %}
- 
 
+<p style="font-size:20px">Much to do {{ request.user|capfirst }} ?!</p>
 
-<p style="font-size:20px">Much to do {{request.user}} ?!</p>
-
-<a href="{% url 'account_logout'%}">Logout</a>
-
+<a href="{% url 'account_logout' %}">Logout</a>
 
 <hr>
 <h1 style="font-size: 2.5rem;">No Excuses</h1>
 
-
-
+<!-- Rest of your content -->
 
 <form action="{% url 'search_task' %}" method="get">
     {% csrf_token %}
     <input type="text" name="task" placeholder="Search a task">
-    <button type="submit"> Search</button>
+    <button type="submit">Search</button>
 </form>
+
 <div class="task-items-container">
     <table>
         <tr>
-
             <th>
                 <p>To Do:</p>
             </th>
-
-
-            {% for task in tasks %}
+        </tr>
+        {% for task in tasks %}
         <tr>
-
             <td>
                 <ul>
                     <li>
                         <p>{{task.title}}</p>
                     </li>
                 </ul>
-
             </td>
             <br>
-
-            <td><a href="{% url 'update_task' task.id %}">Update </a></td>
-
-            <td><a href="{% url 'delete_task' task.id %}">Delete </a></td>
-
-            <td><a href="{% url 'toggle_task' task.id %}">Toggle </a></td>
+            <td><a href="{% url 'update_task' task.id %}">Update</a></td>
+            <td><a href="{% url 'delete_task' task.id %}">Delete</a></td>
+            <td><a href="{% url 'toggle_task' task.id %}">Toggle</a></td>
         </tr>
-
-
         {% endfor %}
     </table>
 </div>
@@ -58,32 +46,29 @@
 <table>
     <tr>
         <th>
-            <p>Task Completed: </p>
+            <p>Task Completed:</p>
         </th>
     </tr>
     {% for task in tasks %}
-
-
     {% if task.done %}
-
     <tr>
         <td>
             <ul>
                 <li>
                     <p style="text-decoration: line-through;
-                            text-decoration-color: rgb(233, 228, 229);">
+                                        text-decoration-color: rgb(233, 228, 229);">
                         {{ task.title }}</p>
                 </li>
             </ul>
         </td>
-        {% else %}
-        <td>{{ task.name }}</td>
-        {% endif %}
     </tr>
+    {% else %}
+    <tr>
+        <td>{{ task.name }}</td>
+    </tr>
+    {% endif %}
     {% endfor %}
 </table>
 
-
 <a href="{% url 'add_task' %}">Add a Task</a>
-
 {% endblock content %}
