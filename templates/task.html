@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block content %}
-<p style="font-size:20px">Much to do {{ request.user|capfirst }} ?!</p>
+<p style="font-size:20px">Much to do, {{ request.user|capfirst }} ?!</p>
 <a href="{% url 'account_logout' %}">Logout</a>
 <hr>
 <h1 style="font-size: 2.5rem;">No Excuses</h1>
@@ -40,7 +40,7 @@
         <tbody style="display:flex;">
             <tr>
                 <th>
-                    <p>Task Completed:</p>
+                    <p>Tasks Completed:</p>
                 </th>
             </tr>
             {% for task in tasks %}

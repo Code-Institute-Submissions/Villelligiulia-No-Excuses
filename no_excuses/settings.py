@@ -175,7 +175,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 SUMMERNOTE_CONFIG = {
 
     'summernote': {
-        # As an example, using Summernote Air-mode
+
         'airMode': False,
         'width': '100%',
         'height': '250px',

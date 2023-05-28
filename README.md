@@ -1,39 +1,47 @@
-![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
+# ~~NO-EXCUSES~~
+No Excuses app is a Django application, which runs in the Code Institute moke terminal on Heroku.
+It is a responsive ToDo List app, that allows the user to keep track of all kind of activities in an easy and nice way, as also performing other tasks such as update, delete and toggle.
+It is an app that aims to be usefull to the user, helping the user to manage at his best all his tasks from any kind of device.
 
-Welcome,
+[Here](https://no-excuses.herokuapp.com/) is a live view on the project. 
+(foto del prgetto)
 
-This is the Code Institute student template for Codeanywhere. We have preinstalled all of the tools you need to get started. It's perfectly ok to use this template as the basis for your project submissions.
+## How it works
+To use the app, if not already in posses of an account will have to register one which will allow to use it.
+No excuses its an easy and intuitive app which allow the user once logged in to perform various actions.
 
-You can safely delete this README.md file, or change it for your own project. Please do read it at least once, though! It contains some important information about Codeanywhere and the extensions we use. Some of this information has been updated since the video content was created. The last update to this file was: **May 11th, 2023**
+## Features
+The app consists of different features:
+- SignIn and SignUp
+   - To allow the access to the tasks the user will have to login to the app providing his/her registered user name and password, if the user is not registered will have then the chance to create an account providing a username a password and optional email address. 
 
-## Codeanywhere Reminders
+![Login feature](/static/images/signin-no-excuses.jpg)
+![Sign up feature](/static/images/signup-no-excuses.jpg)
 
-To run a frontend (HTML, CSS, Javascript only) application in Codeanywhere, in the terminal, type:
+### No Excuses main page
+   - Once Logged in the app will welcome the recognized user and be able to use the features of the app.and be able to:
+     - See all of his/her tasks ordered by date.
+     - Click on the Update and Delete link which will lead respectivelty to different pages for the intended action.
+     - Toggle the Task from Done to UnDone by clicking the Toggle link. If the task is unmaarked and displayed under the "To Do" section, the task will be then marked and copied in the "Tasks Completed" section.
+     - Get permanently rid of the selected task by clicking the Delete button at be redirected to the Delete page and permorf the intended action.
+     - Click the Add Task link and redirected to the Add task page to perfmorm the intended action.
+     - Search for a particular task by typing the name of the task into the search bar and retreieve it. If the user will click the search button without inserting a value or inserting an incorrect value will be notified by the app about those actions.
+     -  Logout from the app.
 
-`python3 -m http.server`
+![No Excuses toggle task](/static/images/toggle-task-no-excuses.jpg)
+![No Excuses empty search](/static/images/invalid-search-noexcuses.jpg)
+![No Excuses wrong search](/static/images/no-tasks-found.jpg)
 
-A button should appear to click: _Open Preview_ or _Open Browser_.
+### No Excuses Update Task
+- After clicking the "Update" link beside the task from the main page, the user will be redirected to the Update page and be able to:
+  - Write a title for a task.
+  - Add a description for a task. To do so the user will be provided with a full Summernote editor so that will be able to chose the preferred style to save his/her task.
+  - Check a box and mark the task as Done.
+  - Submit with a botton the update action and be redirect to the main page where the tasks list will be now updated.
+  - Go back to the main page without performing any update.
 
-To run a frontend (HTML, CSS, Javascript only) application in Codeanywhere with no-cache, you can use this alias for `python3 -m http.server`.
+![No Excuses Update page]
 
-`http_server`
 
-To run a backend Python file, type `python3 app.py`, if your Python file is named `app.py` of course.
 
-A button should appear to click: _Open Preview_ or _Open Browser_.
 
-In Codeanywhere you have superuser security privileges by default. Therefore you do not need to use the `sudo` (superuser do) command in the bash terminal in any of the lessons.
-
-To log into the Heroku toolbelt CLI:
-
-1. Log in to your Heroku account and go to _Account Settings_ in the menu under your avatar.
-2. Scroll down to the _API Key_ and click _Reveal_
-3. Copy the key
-4. In Codeanywhere, from the terminal, run `heroku_config`
-5. Paste in your API key when asked
-
-You can now use the `heroku` CLI program - try running `heroku apps` to confirm it works. This API key is unique and private to you so do not share it. If you accidentally make it public then you can create a new one with _Regenerate API Key_.
-
----
-
-Happy coding!
