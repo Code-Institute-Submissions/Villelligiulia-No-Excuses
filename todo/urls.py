@@ -4,7 +4,7 @@ from django.urls import path
 
 
 urlpatterns = [
-    path("", LoginView.as_view(template_name="custom-login.html"),
+    path("", LoginView.as_view(template_name="intro.html"),
          name="login"),
     path("tasks/", views.TaskList.as_view(),
          name="home"),
@@ -17,4 +17,5 @@ urlpatterns = [
          name="toggle_task"),
     path("search-task/", views.SearchTask.as_view(),
          name="search_task"),
+    path('task/<int:pk>/', views.ViewTask.as_view(), name='view_task')
 ]

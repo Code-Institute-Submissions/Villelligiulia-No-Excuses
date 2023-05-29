@@ -3,19 +3,19 @@ body {
     padding-top: 50px;
 }
 
-h2 {
-    text-align: center;
-    font-family: 'Sacramento', cursive;
-    font-size: 50px;
-    line-height: 40px;
-}
-
 h1 {
     text-align: center;
     font-family: 'Raleway', sans-serif;
     font-size: 6rem;
     text-decoration: line-through;
     text-decoration-color: white;
+}
+
+h2 {
+    text-align: center;
+    font-family: 'Sacramento', cursive;
+    font-size: 50px;
+    line-height: 40px;
 }
 
 p {
@@ -65,9 +65,13 @@ input {
 }
 
 .task-items-container {
-    display: flex;
-    justify-content: flex-start;
     overflow: auto;
+}
+
+.bottom-page-link {
+    display: block;
+    text-align: center;
+    padding-top: 3px;
 }
 
 #msg {
@@ -83,10 +87,59 @@ input {
     padding: 5px;
 }
 
-/* mediaqueries  */
+/* task.html */
+.greeting {
+    font-size: 20px;
+}
+
+.task-status {
+    text-align: justify;
+}
+
+.task-title {
+    color: black;
+    text-decoration: underline;
+    text-decoration-color: whitesmoke;
+    cursor: pointer;
+    
+}
+
+.app-name-tasks-page {
+    font-size: 2.5rem;
+}
+
+a.task-title:hover,
+.task-completed-title:hover {
+    color: white;
+    text-decoration-color: black;
+}
+
+.task-completed-title {
+    text-decoration: line-through;
+    color: black;
+    text-decoration-color: rgb(233, 228, 229);
+}
+
+
+.add-task {
+    display: block;
+    text-align: center;
+}
+
+/* view-task.html */
+.todo-task-title {
+    text-decoration: none;
+}
+
+/* mediaqueries */
 @media (max-width: 500px) {
     h1 {
         font-size: 60px;
-
     }
 }
+
+/* @media only screen and (max-width: 600px) {
+    body {
+        font-weight: 800;
+    }
+} */

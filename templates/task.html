@@ -1,72 +1,85 @@
-{% extends 'base.html' %}
+{% extends 'base.html'%}
 {% load static %}
+
 {% block content %}
-<p style="font-size:20px">Much to do, {{ request.user|capfirst }} ?!</p>
+<p class="greeting">Much to do, {{ request.user|capfirst }} ?!</p>
 <a href="{% url 'account_logout' %}">Logout</a>
 <hr>
-<h1 style="font-size: 2.5rem;">No Excuses</h1>
-<!-- Rest of your content -->
+<h1 class="app-name-tasks-page">No Excuses</h1>
+
 <form action="{% url 'search_task' %}" method="get">
     {% csrf_token %}
     <input type="text" name="task" placeholder="Search a task">
     <button type="submit">Search</button>
 </form>
+
 <div class="task-items-container">
-    <table>
-        <tr>
-            <th>
-                <p style="text-align: justify;">To Do:</p>
-            </th>
-        </tr>
-        {% for task in tasks %}
-        <tr>
-            <td>
-                <ul>
-                    <li>
-                        <p>{{task.title}}</p>
-                    </li>
-                </ul>
-            </td>
-            <td><a href="{% url 'update_task' task.id %}">Update</a></td>
-            <td><a href="{% url 'delete_task' task.id %}">Delete</a></td>
-            <td><a href="{% url 'toggle_task' task.id %}">Toggle</a></td>
+    <div class="task-items-container">
+        <table>
+            <thead>
+                <tr>
+                    <th>
 
-        </tr>
-        {% endfor %}
-    </table>
+                        <p class="task-status">To Do:</p>
+                    </th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for task in tasks %}
+                {% if not task.done %}
+                <tr>
+                    <td>
+                        <ul>
+                            <li>
+                                <a href="{% url 'view_task' pk=task.pk %}" class="task-title">{{ task.title }}</a>
+                            </li>
+                        </ul>
+                    </td>
+                    <td><a href="{% url 'update_task' task.id %}">Update</a></td>
+                    <td><a href="{% url 'delete_task' task.id %}">Delete</a></td>
+                    <td><a href="{% url 'toggle_task' task.id %}">Toggle</a></td>
+                </tr>
+                {% endif %}
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+    <div class="task-items-container">
+        <table>
+            <thead>
+                <tr>
+                    <th>
+                        <p class="task-status">Tasks Completed:</p>
+                    </th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for task in tasks %}
+                {% if task.done %}
+                <tr>
+                    <td>
+                        <ul>
+                            <li>
+                                <a href="{% url 'view_task' pk=task.pk %}" class="task-completed-title">
+                                    {{ task.title }}
+                                </a>
+                            </li>
+                        </ul>
+                    </td>
+                    <td><a href="{% url 'toggle_task' task.id %}">Toggle</a></td>
+                </tr>
+                {% endif %}
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
 </div>
-<div class="task-items-container">
-    <table>
-        <tbody style="display:flex;">
-            <tr>
-                <th>
-                    <p>Tasks Completed:</p>
-                </th>
-            </tr>
-            {% for task in tasks %}
-            {% if task.done %}
 
-            <tr>
-                <td>
-
-                    <ul>
-                        <li>
-                            <p style="text-decoration: line-through;
-                  text-decoration-color: rgb(233, 228, 229);">
-                                {{ task.title }}
-                            </p>
-                        </li>
-                    </ul>
-                </td>
-            </tr>
-            {% else %}
-            <tr>
-                <td>{{ task.name }}</td>
-            </tr>
-            {% endif %}
-            {% endfor %}
-        </tbody>
-    </table>
-</div>
-<a href="{% url 'add_task' %}" style="display:block; text-align:center;">Add a Task</a>
-{% endblock content %}
+<a href="{% url 'add_task' %}" class="bottom-page-link">Add a Task</a>
+{% endblock %}

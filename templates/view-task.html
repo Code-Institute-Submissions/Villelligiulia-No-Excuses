@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+{% if view_task.done %}
+<h1 >{{ view_task.title }}</h1>
+{% else %}
+<h1 class="todo-task-title">{{ view_task.title }}</h1>
+{% endif %}
+<p>{{ view_task.description | safe }}</p>
+<a  class="bottom-page-link"href="{% url 'home'%}">Back to Your List</a>
+{% endblock %} 

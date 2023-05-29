@@ -13,6 +13,11 @@ class TaskList(LoginRequiredMixin, generic.ListView):
     context_object_name = "tasks"
     login_url = "login"
 
+class ViewTask(generic.DetailView):
+    model = Task
+    template_name = 'view-task.html'  
+    context_object_name = "view_task"
+
 
 class SearchTask(generic.ListView):
     model = Task
