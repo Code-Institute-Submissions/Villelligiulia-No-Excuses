@@ -13,9 +13,13 @@ class TaskList(LoginRequiredMixin, generic.ListView):
     context_object_name = "tasks"
     login_url = "login"
 
+    def get_queryset(self):
+        return Task.objects.filter(user=self.request.user)
+
+
 class ViewTask(generic.DetailView):
     model = Task
-    template_name = 'view-task.html'  
+    template_name = 'view-task.html'
     context_object_name = "view_task"
 
 
@@ -26,14 +30,19 @@ class SearchTask(generic.ListView):
 
     def get_queryset(self):
         query = self.request.GET.get('task')
-        tasks = Task.objects.filter(title__icontains=query).order_by('title')
+        user = self.request.user
+        tasks = Task.objects.filter(
+            user=user).order_by('title')
         if not query:
             messages.warning(self.request, 'Please enter a task to search.')
             return tasks
-        tasks = Task.objects.filter(title__icontains=query).order_by('title')
-        if not tasks:
-            messages.warning(self.request, 'No tasks found.')
-        return tasks
+        searched_task = Task.objects.filter(
+            user=user, title__icontains=query).order_by('title')
+        if not searched_task:
+            messages.warning(self.request, f"No results found for {query}")
+            return tasks
+        else:
+            return searched_task
 
 
 class AddTask(LoginRequiredMixin, generic.CreateView):
@@ -44,6 +53,7 @@ class AddTask(LoginRequiredMixin, generic.CreateView):
     login_url = "login"
 
     def form_valid(self, form):
+        form.instance.user = self.request.user
         messages.success(self.request, "You added a new task")
         return super().form_valid(form)
 
