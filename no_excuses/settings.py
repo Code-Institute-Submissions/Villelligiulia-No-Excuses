@@ -30,11 +30,11 @@ TEMPLATES_DIR = os.path.join(BASE_DIR, 'templates')
 SECRET_KEY = os.environ.get('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 X_FRAME_OPTIONS = 'SAMEORIGIN'
 
-ALLOWED_HOSTS = ['8000-villelligiulia-no-excuse-6fzta30y6y.us2.codeanyapp.com',
+ALLOWED_HOSTS = ['8000-villelligiulia-no-excuse-k5f0u78ex9.us2.codeanyapp.com',
                  'no-excuses.herokuapp.com', 'localhost',]
 
 
