@@ -1,18 +1,15 @@
 {% extends 'base.html' %}
 {% load static %}
-
 {% block content %}
 <p class="greeting">Much to do, {{ request.user|capfirst }} ?!</p>
 <a href="{% url 'account_logout' %}">Logout</a>
 <hr>
-<h1 class="app-name-tasks-page">No Excuses</h1>
-
+<h1 class="app-name-title-page">No Excuses</h1>
 <form action="{% url 'search_task' %}" method="get">
     {% csrf_token %}
     <input type="text" name="task" placeholder="Search a task">
     <button type="submit">Search</button>
 </form>
-
 <div class="todo-tasks-container data-simplebar">
     <table>
         <thead>
@@ -41,17 +38,15 @@
         </tbody>
     </table>
 </div>
-
 <div>
     <div class="task-status">
         <p>Tasks Completed:</p>
     </div>
-
     <div class="tasks-completed-container">
         {% for task in tasks %}
         {% if task.done %}
-        <div class="task-completed-item">
-            <a href="{% url 'view_task' pk=task.pk %}" class="task-title task-completed-title">{{ task.title }}</a>
+        <div>
+            <a href="{% url 'view_task' pk=task.pk %}" class="task-completed-title">{{ task.title }}</a>
             <div class="task-actions">
                 <a href="{% url 'toggle_task' task.id %}">Toggle</a>
             </div>
@@ -60,12 +55,9 @@
         {% endfor %}
     </div>
 </div>
-
-
-
-
 <div class="add-task-container">
     <a href="{% url 'add_task' %}" class="bottom-page-link">Add a Task</a>
-    {% endblock %}
 </div>
-</div>
+
+
+{% endblock %}

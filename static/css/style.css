@@ -65,13 +65,10 @@ input {
     box-shadow: 5px 10px #888888;
 }
 
-
-
-
 .bottom-page-link {
     display: block;
     text-align: center;
-    padding-top: 3px;
+    margin-top: 10px;
 }
 
 #msg {
@@ -87,7 +84,6 @@ input {
     padding: 5px;
 }
 
-/* task.html */
 .greeting {
     font-size: 20px;
 }
@@ -101,14 +97,11 @@ input {
     text-decoration: underline;
     text-decoration-color: whitesmoke;
     cursor: pointer;
-
 }
 
-.app-name-tasks-page {
+.app-name-title-page {
     font-size: 2.5rem;
 }
-
-
 
 a.task-title:hover,
 .task-completed-title:hover {
@@ -117,12 +110,9 @@ a.task-title:hover,
 }
 
 .todo-tasks-container {
-
     padding: 8px;
     width: 100%;
-    /* Ensure the container takes up the available width */
     overflow-x: auto;
-    /* Enable horizontal overflow */
     white-space: nowrap;
 }
 
@@ -139,42 +129,24 @@ a.task-title:hover,
     text-decoration-color: rgb(233, 228, 229);
 }
 
-.add-task-container {
-    margin-top: 30px;
-}
-
-/* view-task.html */
-.todo-task-title {
-    text-decoration: none;
-}
-
-/* mediaqueries */
-@media (max-width: 500px) {
-    h1 {
-        font-size: 60px;
-    }
-}
-
-/* @media only screen and (max-width: 600px) {
-    body {
-        font-weight: 800;
-    }
-} */
 .todo-tasks-container .simplebar-track.simplebar-horizontal {
     background-color: #fafafa;
-    /* Customize the background color of the scrollbar track */
     height: 6px;
-    /* Customize the height of the scrollbar track */
     border-radius: 3px;
-    /* Customize the border radius of the scrollbar track */
-
 }
 
 .todo-tasks-container .simplebar-scrollbar::before {
     background-color: #92630C;
-    /* Customize the color of the scrollbar thumb */
     border-radius: 3px;
-    /* Customize the border radius of the scrollbar thumb */
     opacity: 1;
+}
 
+.todo-task-title {
+    text-decoration: none;
+}
+
+@media (max-width: 500px) {
+    h1 {
+        font-size: 60px;
+    }
 }

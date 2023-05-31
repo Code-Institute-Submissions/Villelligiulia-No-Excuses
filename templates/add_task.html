@@ -6,6 +6,6 @@
     {% csrf_token %}
     {{form.as_p}}
     <input class="button" type="submit" value="submit">
-    <a href="{% url 'home'%}" style="display:block; text-align:center;">Back to Your List</a>
+    <a href="{% url 'home'%}" class="bottom-page-link">Back to Your List</a>
 </form>
 {% endblock content %}

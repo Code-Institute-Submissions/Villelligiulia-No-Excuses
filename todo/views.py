@@ -45,7 +45,7 @@ class SearchTask(generic.ListView):
             return searched_task
 
 
-class AddTask(LoginRequiredMixin, generic.CreateView):
+class AddTask(generic.CreateView):
     model = Task
     template_name = "add_task.html"
     form_class = TaskForm
@@ -61,12 +61,11 @@ class AddTask(LoginRequiredMixin, generic.CreateView):
         return reverse_lazy("home")
 
 
-class UpdateTask(LoginRequiredMixin, generic.UpdateView):
+class UpdateTask(generic.UpdateView):
     model = Task
     template_name = "add_task.html"
     form_class = TaskForm
     success_url = reverse_lazy("home")
-    login_url = "login"
 
     def form_valid(self, form):
         messages.success(self.request, "You have updated a task")
@@ -76,24 +75,21 @@ class UpdateTask(LoginRequiredMixin, generic.UpdateView):
         return reverse_lazy("home")
 
 
-class DeleteTask(LoginRequiredMixin, generic.DeleteView):
+class DeleteTask(generic.DeleteView):
     model = Task
     template_name = "delete_task.html"
     context_object_name = "task_to_delete"
 
     success_url = reverse_lazy("home")
-    login_url = "login"
 
     def delete(self, request, *args, **kwargs):
         messages.success(request, "You have deleted a task")
         return super().delete(request, *args, **kwargs)
 
 
-class ToggleTask(LoginRequiredMixin, generic.View):
+class ToggleTask(generic.View):
     def get(self, request, pk):
         task = get_object_or_404(Task, pk=pk)
         task.done = not task.done
         task.save()
         return redirect("home")
-
-    login_url = "login"
