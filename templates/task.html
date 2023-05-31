@@ -1,4 +1,4 @@
-{% extends 'base.html'%}
+{% extends 'base.html' %}
 {% load static %}
 
 {% block content %}
@@ -13,73 +13,59 @@
     <button type="submit">Search</button>
 </form>
 
-<div class="task-items-container">
-    <div class="task-items-container">
-        <table>
-            <thead>
-                <tr>
-                    <th>
-
-                        <p class="task-status">To Do:</p>
-                    </th>
-                    <th></th>
-                    <th></th>
-                    <th></th>
-                </tr>
-            </thead>
-            <tbody>
-                {% for task in tasks %}
-                {% if not task.done %}
-                <tr>
-                    <td>
-                        <ul>
-                            <li>
-                                <a href="{% url 'view_task' pk=task.pk %}" class="task-title">{{ task.title }}</a>
-                            </li>
-                        </ul>
-                    </td>
-                    <td><a href="{% url 'update_task' task.id %}">Update</a></td>
-                    <td><a href="{% url 'delete_task' task.id %}">Delete</a></td>
-                    <td><a href="{% url 'toggle_task' task.id %}">Toggle</a></td>
-                </tr>
-                {% endif %}
-                {% endfor %}
-            </tbody>
-        </table>
-    </div>
-
-    <div class="task-items-container">
-        <table>
-            <thead>
-                <tr>
-                    <th>
-                        <p class="task-status">Tasks Completed:</p>
-                    </th>
-                    <th></th>
-                </tr>
-            </thead>
-            <tbody>
-                {% for task in tasks %}
-                {% if task.done %}
-                <tr>
-                    <td>
-                        <ul>
-                            <li>
-                                <a href="{% url 'view_task' pk=task.pk %}" class="task-completed-title">
-                                    {{ task.title }}
-                                </a>
-                            </li>
-                        </ul>
-                    </td>
-                    <td><a href="{% url 'toggle_task' task.id %}">Toggle</a></td>
-                </tr>
-                {% endif %}
-                {% endfor %}
-            </tbody>
-        </table>
-    </div>
-
+<div class="todo-tasks-container data-simplebar">
+    <table>
+        <thead>
+            <tr>
+                <th>
+                    <p class="task-status">To Do:</p>
+                </th>
+                <th></th>
+                <th></th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for task in tasks %}
+            {% if not task.done %}
+            <tr>
+                <td>
+                    <a href="{% url 'view_task' pk=task.pk %}" class="task-title">{{ task.title }}</a>
+                </td>
+                <td><a href="{% url 'update_task' task.id %}">Update</a></td>
+                <td><a href="{% url 'delete_task' task.id %}">Delete</a></td>
+                <td><a href="{% url 'toggle_task' task.id %}">Toggle</a></td>
+            </tr>
+            {% endif %}
+            {% endfor %}
+        </tbody>
+    </table>
 </div>
 
-<a href="{% url 'add_task' %}" class="bottom-page-link">Add a Task</a>
-{% endblock %}
+<div>
+    <div class="task-status">
+        <p>Tasks Completed:</p>
+    </div>
+
+    <div class="tasks-completed-container">
+        {% for task in tasks %}
+        {% if task.done %}
+        <div class="task-completed-item">
+            <a href="{% url 'view_task' pk=task.pk %}" class="task-title task-completed-title">{{ task.title }}</a>
+            <div class="task-actions">
+                <a href="{% url 'toggle_task' task.id %}">Toggle</a>
+            </div>
+        </div>
+        {% endif %}
+        {% endfor %}
+    </div>
+</div>
+
+
+
+
+<div class="add-task-container">
+    <a href="{% url 'add_task' %}" class="bottom-page-link">Add a Task</a>
+    {% endblock %}
+</div>
+</div>
