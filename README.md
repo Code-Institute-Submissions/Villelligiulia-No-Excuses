@@ -9,7 +9,7 @@ No excuses its an easy and intuitive app which allows the users once logged in t
 
 [Here](https://no-excuses.herokuapp.com/) is a live view of the project.
 
-## Table of Conten
+## Table of Content 
 
 - [Features](#features)
   
@@ -34,7 +34,7 @@ No excuses its an easy and intuitive app which allows the users once logged in t
 - [Implemented User stories.](#implemented-user-stories)
 - [Feature Features](#feature-features)
 - [Wireframe Design and Styling Approach](#wireframe-design-and-styling-approach)
-- [Database schem](#database-schema)
+- [Database schema](#database-schema)
 - [Testing](#testing)
   - [Manual testing](#manual-testing)
   - [Validator testing](#validator-testing)
@@ -77,7 +77,7 @@ The page greets users with an engaging introduction, emphasizing the importance 
 ![No Excuses empty search](/static/images/invalid-search-noexcuses.jpg)
 ![No Excuses wrong search](/static/images/no-task-found.jpg)
 
-### The Uppdate/Add task page
+### The Update/Add task page
 
   When users click either the "Update" link next to a task or the "Add Task" link at the bottom of the page, they are redirected to a dedicated page where those actions can be performed. On this page, the users are  presented with the following options:
 
@@ -102,7 +102,7 @@ By visually distinguishing between completed and active tasks, the app provides 
 
 - By cliking the "Delete" link beside the task, users are redirected to the Delete page, where will be asked if certain about removing the task chosen from the task list. Users will be able to confirm this action or go back to the main page.
 
-![Delete Task page](/static/images/delete-task-no-excuses.jpg)
+![Delete Task page](/static/images/delete-task-no-excuses.png)
 
 ### The Logout Page
 
