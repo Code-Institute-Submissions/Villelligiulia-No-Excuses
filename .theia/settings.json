@@ -1,0 +1,8 @@
+{
+    "markdown.editor.drop.enabled": true,
+    "markdown.experimental.validate.fileLinks.enabled": "warning",
+    "markdown.experimental.validate.fragmentLinks.enabled": "ignore",
+    "markdown.experimental.editor.pasteLinks.enabled": true,
+    "markdown.experimental.validate.enabled": true,
+    "markdown.extension.toc.updateOnSave": false
+}

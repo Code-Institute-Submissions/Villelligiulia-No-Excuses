@@ -34,7 +34,7 @@ DEBUG = False
 
 X_FRAME_OPTIONS = 'SAMEORIGIN'
 
-ALLOWED_HOSTS = ['8000-villelligiulia-no-excuse-k5f0u78ex9.us2.codeanyapp.com',
+ALLOWED_HOSTS = ['8000-villelligiulia-no-excuse-ns4ebhdiy1.us2.codeanyapp.com',
                  'no-excuses.herokuapp.com', 'localhost',]
 
 
