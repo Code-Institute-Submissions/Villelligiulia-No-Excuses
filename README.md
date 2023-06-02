@@ -5,9 +5,9 @@ It is a responsive ToDo List app, that allows users to keep track of all kind of
 To use the app, if not already in posses of an account, users  will have to register one which will allow to use it.
 No excuses its an easy and intuitive app which allows the users once logged in to perform various actions.The application aims to be usefull to the user, helping tasks management from any kind of device.
 
-![No Excuses responsive mockup](/static/images/responsive-noexcuses.jpg)
+![No Excuses responsive mockup](/static/images/responsive-noexcuses.jpg
 
-[Here](https://no-excuses.herokuapp.com/){:target="_blank"} is a live view of the project.
+[Here](https://no-excuses.herokuapp.com/) is a live view of the project.
 
 ## Table of Content
 
@@ -148,7 +148,7 @@ The horizontal scroll bar has been then customized, using the [Simplebar](https:
 
 ## Epics
 
- For the development of the project, 8 Epics with 8 User Stories were created.  Details of the Agile Design Thinking approach can be found in the project Kanban board [here](https://github.com/users/Villelligiulia/projects/4/views/1){:target="_blank"}
+ For the development of the project, 8 Epics with 8 User Stories were created.  Details of the Agile Design Thinking approach can be found in the project Kanban board [here](https://github.com/users/Villelligiulia/projects/4/views/1)
 
    1. View task list.
    2. Select a task.
@@ -290,7 +290,7 @@ While the main focus of the project was to successfully achieve and deliver the 
 
 ## Wireframe Design and Styling Approach
 
-Since from the planning stage of the app the idea was to create a simple and visually pleasing user interface. The wireframe of the project, developed using [Balsamiq](https://balsamiq.com/wireframes/){:target="_blank"}, reflects this intention ensuring the app is presented in a simple, clear and intuitive manner.
+Since from the planning stage of the app the idea was to create a simple and visually pleasing user interface. The wireframe of the project, developed using [Balsamiq](https://balsamiq.com/wireframes/), reflects this intention ensuring the app is presented in a simple, clear and intuitive manner.
 Although some minor stylistic changes were made in terms of the placement of certain elements during the development process, the final result stayed true to the original concept.
 The app's simple style is consistently applied throughout its various pages, creating a cohesive and visually pleasing experience.
 
@@ -305,7 +305,7 @@ The title is styled with a line through as to symbolize the concept of a complet
 
 ## Database schema
 
-The database schema was implemented using [Lucidchart](https://www.lucidchart.com/pages/?gspk=eXVsaWFzYWRvdmExOTMz&gsxid=ORkF5zrs1X9l&pscd=try.lucid.co&sid=3CehEubVwGiRLxsMJlM84OGyCDf2RrOo7WSLQzR9opc8me&utm_campaign=partnerstack&utm_medium=affiliate-partner&utm_source=yuliasadova1933){:target="_blank"}.
+The database schema was implemented using [Lucidchart](https://www.lucidchart.com/pages/?gspk=eXVsaWFzYWRvdmExOTMz&gsxid=ORkF5zrs1X9l&pscd=try.lucid.co&sid=3CehEubVwGiRLxsMJlM84OGyCDf2RrOo7WSLQzR9opc8me&utm_campaign=partnerstack&utm_medium=affiliate-partner&utm_source=yuliasadova1933).
 
 ![Database scheme](/static/images/db-scheme.jpg)
 
@@ -316,7 +316,7 @@ The "Task" Model represents the structure of the task that the user creates and 
 
 - user: foreign key to the User model mentioned above.
 - title : is a character field with a maximum length of 200 characters. It stores the title or name of the task.
-- description: is a text field and is where the user stores additional informations about the task. The description field it's been implemented using the [Summernote](https://summernote.org/){:target="_blank"} library which provides a full text editor which allows the user to format and style the tasks, as also uplodiang media  and create tables using a familiar and user friendly interface.
+- description: is a text field and is where the user stores additional informations about the task. The description field it's been implemented using the [Summernote](https://summernote.org/) library which provides a full text editor which allows the user to format and style the tasks, as also uplodiang media  and create tables using a familiar and user friendly interface.
 It empowers users to express their thoughts, requirements, and additional information about each task in a visually appealing manner, further improving the over all user experience.
 - done: this field is a boolean field set to False by default. It represents the completion status of the task where False represent incomplete and True complete. It allows the user to manipulate and control the behaviour of the task which will be reflected on the task list page.
 - created: is a date time field with an attribute of "auto_add_now = True" which will automcatically records the date and time when the task was created.This field is used to estabilish the order of the tasks when those will be displayed on the main page and this is achieved by the Meta class that gives more information about the "Task" model. In this case the "ordering" attribute equal to "created" will allows the tasks to be displayed based on the date and time they were created ensuring the tasks are displayed in a consistent and predictable order.
@@ -406,7 +406,7 @@ Below the following results scored by Lighthouse toll:
 In the development of my project, I encountered a couple of bugs that required attention and resolution.
 
 - I faced some challenges styling the Summernote editor, which by default was too large for the width of my page. My first approach has been adding a class to the classTask form in order to style the editor using that class in css, however this didnt work.
-Consulting then [Summernote documentation](https://github.com/summernote/django-summernote){:target="_blank"} i menaged to fix the issue by adding SUMMERNOTE_CONFIG in my setting.py.
+Consulting then [Summernote documentation](https://github.com/summernote/django-summernote) i menaged to fix the issue by adding SUMMERNOTE_CONFIG in my setting.py.
 
 - Following the tuorial "I Think Therefore I Blog" i wasnt able to copy the allauth files into my templates folder. Running the command shown in the video "cp -r ../.pip-modules/lib/python3.8/site-packages/allauth/templates/* ./templates/allauth/" , i was getting "no such file or directory" Error. Looking on Slack i found other people which had already the same issue and i could get my solution there, thanks to the answer provided by a mentor in Code Institute.
 I then followed those steps:
@@ -414,7 +414,7 @@ I then followed those steps:
   - As my templates folder was there i didnt need the ".." in the code.
 Running the command applying those modifications enabled me to copy the allauth files correctly into my templates folder.
 
-- There was a bug related to task visibility in the task view when a user was logged in. The task view was displaying tasks belonging to other users as well, which compromised the intended user-specific functionality. To rectify this, i consulted the [Django documentation "Making queries" section](https://docs.djangoproject.com/en/3.2/topics/db/queries/){:target="_blank"}. I implemented a solution by filtering the tasks query to only retrieve tasks associated with the currently logged-in user. This restriction ensured that each user could only view their own tasks, enhancing data privacy and maintaining the intended user experience.
+- There was a bug related to task visibility in the task view when a user was logged in. The task view was displaying tasks belonging to other users as well, which compromised the intended user-specific functionality. To rectify this, i consulted the [Django documentation "Making queries" section](https://docs.djangoproject.com/en/3.2/topics/db/queries/). I implemented a solution by filtering the tasks query to only retrieve tasks associated with the currently logged-in user. This restriction ensured that each user could only view their own tasks, enhancing data privacy and maintaining the intended user experience.
 
 ## Technologies used
 
@@ -469,7 +469,7 @@ Custom JavaScript was utilised to schedule the dismiss functionality of the mess
 
 ## Miscellaneous
 
-As visul representation of the "NoExcuses" logo i used the [Favicon generator](https://www.favicon.cc/){:target="_blank"} to enhance the visual appeal of the app, providing brading and recongnition.
+As visul representation of the "NoExcuses" logo i used the [Favicon generator](https://www.favicon.cc/) to enhance the visual appeal of the app, providing brading and recongnition.
 The favicon incorporates the same color scheme as the app itself. It features a brown background color, which represents the app's aesthetic. On top of the background, there is a white letter "E" representing "Excuses," title of the app. Cutting across the icon is a bold black line, symbolizing the elimination of excuses and the determination to get things done. The design of the favicon captures the essence and purpose of the app, creating a visually appealing and meaningful representation.
 
 ![favicon](/static/images/favicon.jpg)
@@ -478,17 +478,17 @@ The favicon incorporates the same color scheme as the app itself. It features a 
 
 For the development of the project a wide rane of documentation and a deep reference to the Django documentation was used.
 
-- Django general documentation: (<https://docs.djangoproject.com/en/4.2/>){:target="_blank"}
-  - Django allauth: (<https://django-allauth.readthedocs.io/en/latest/>){:target="_blank"}
-  - Django class based view documentation: (<https://docs.djangoproject.com/en/4.2/topics/class-based-views/>){:target="_blank"}
-  - Django template language: (<https://docs.djangoproject.com/en/4.2/ref/templates/language/>){:target="_blank"}
-  - Django making queries: (<https://docs.djangoproject.com/en/4.2/topics/db/queries/>){:target="_blank"}
-  - Django applications: (<https://docs.djangoproject.com/en/3.2/ref/applications/>){:target="_blank"}
-  - Django URL handling: (<https://docs.djangoproject.com/en/3.2/topics/http/urls/>){:target="_blank"}
-  - Django working with forms:(<https://docs.djangoproject.com/en/3.2/topics/forms/>){:target="_blank"}
-  - Django render, redirect and get_object_or_404 shortcut functions: (<https://docs.djangoproject.com/en/3.2/topics/http/shortcuts/>){:target="_blank"}
-- Summernote: (<https://github.com/summernote/django-summernote>){:target="_blank"}
-- Simplebar:  (<https://github.com/Grsmto/simplebar>){:target="_blank"}
+- Django general documentation: (<https://docs.djangoproject.com/en/4.2/>)
+  - Django allauth: (<https://django-allauth.readthedocs.io/en/latest/>)
+  - Django class based view documentation: (<https://docs.djangoproject.com/en/4.2/topics/class-based-views/>)
+  - Django template language: (<https://docs.djangoproject.com/en/4.2/ref/templates/language/>)
+  - Django making queries: (<https://docs.djangoproject.com/en/4.2/topics/db/queries/>)
+  - Django applications: (<https://docs.djangoproject.com/en/3.2/ref/applications/>)
+  - Django URL handling: (<https://docs.djangoproject.com/en/3.2/topics/http/urls/>)
+  - Django working with forms:(<https://docs.djangoproject.com/en/3.2/topics/forms/>)
+  - Django render, redirect and get_object_or_404 shortcut functions: (<https://docs.djangoproject.com/en/3.2/topics/http/shortcuts/>)
+- Summernote: (<https://github.com/summernote/django-summernote>)
+- Simplebar:  (<https://github.com/Grsmto/simplebar>)
 
 ## Deployment
 
