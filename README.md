@@ -5,7 +5,7 @@ It is a responsive ToDo List app, that allows users to keep track of all kind of
 To use the app, if not already in posses of an account, users  will have to register one which will allow to use it.
 No excuses its an easy and intuitive app which allows the users once logged in to perform various actions.The application aims to be usefull to the user, helping tasks management from any kind of device.
 
-![No Excuses responsive mockup](/static/images/responsive-noexcuses.jpg
+![No Excuses responsive mockup](/static/images/responsive-noexcuses.jpg)
 
 [Here](https://no-excuses.herokuapp.com/) is a live view of the project.
 
@@ -40,12 +40,12 @@ No excuses its an easy and intuitive app which allows the users once logged in t
   - [Validator testing](#validator-testing)
   - [Lighthouse Testing](#lighthouse-testing)
   - [Notable Bugs and Issues](#notable-bugs-and-issues)
-  - [Technologies used](#technologies-used)
-  - [Packages Used](#packages-used)
-  - [Miscellaneous](#miscellaneous)
-  - [Documentation](#documentation)
-  - [Deployment](#deployment)
-  - [Credits](#credits)
+- [Technologies used](#technologies-used)
+- [Packages Used](#packages-used)
+- [Miscellaneous](#miscellaneous)
+- [Documentation](#documentation)
+- [Deployment](#deployment)
+- [Credits](#credits)
   
 ## Features  
 
